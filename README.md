@@ -69,7 +69,7 @@ Here are some of my key projects showcasing software development and security sk
 ## 📞 Contact Me
 - **Email:** ezradestaw@gmail.com  
 - **Phone:** +251952592480  
-- **GitHub:** [https://github.com/yourusername](https://github.com/Ezradestaw)  
+- **GitHub:** (https://github.com/Ezradestaw)  
 
 
 ---
