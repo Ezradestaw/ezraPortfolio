@@ -1,449 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Future Software Engineer & Security Researcher</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --bg-color: #0a192f;
-            --text-primary: #ccd6f6;
-            --text-secondary: #8892b0;
-            --accent-color: #64ffda; /* Cyber Green */
-            --card-bg: #112240;
-            --transition: all 0.3s ease-in-out;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ezra Destaw | Software Engineer & Cybersecurity Enthusiast</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* --- Variables & Reset --- */
+  :root{
+    --bg:#0a192f;
+    --card:#112240;
+    --text:#ccd6f6;
+    --subtext:#8892b0;
+    --accent:#64ffda;
+    --transition:.3s;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  a{text-decoration:none;color:inherit;transition:var(--transition);}
+  ul{list-style:none;}
+  .container{max-width:1000px;margin:0 auto;padding:0 20px;}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  /* --- Hero Section --- */
+  header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;}
+  .hero h1{font-size:clamp(40px,8vw,70px);font-weight:800;margin-bottom:10px;}
+  .hero h2{font-size:clamp(30px,5vw,50px);font-weight:700;color:var(--subtext);margin-bottom:20px;}
+  .hero p{max-width:600px;color:var(--subtext);margin-bottom:30px;font-size:18px;}
+  .btn{padding:12px 25px;border:1px solid var(--accent);color:var(--accent);border-radius:5px;transition:var(--transition);}
+  .btn:hover{background:rgba(100,255,218,.1);}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
+  /* --- Section Titles --- */
+  h2.section-title{font-size:28px;font-weight:700;margin-bottom:30px;position:relative;color:var(--text);}
+  h2.section-title::after{content:'';width:150px;height:1px;background:var(--subtext);opacity:.5;position:absolute;left:50%;transform:translateX(-50%);bottom:-10px;}
+  .section-subtitle{color:var(--accent);font-family:'Fira Code',monospace;font-size:14px;margin-bottom:10px;text-align:center;}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
+  /* --- About & Education --- */
+  .about-grid{display:grid;grid-template-columns:3fr 2fr;gap:50px;margin-bottom:50px;}
+  .edu-card{background:var(--card);padding:20px;border-radius:8px;margin-top:20px;border-left:3px solid var(--accent);}
+  .edu-card h4{color:var(--text);margin-bottom:5px;}
+  .edu-card .score{color:var(--accent);font-family:'Fira Code',monospace;font-weight:bold;}
 
-        ul {
-            list-style: none;
-        }
+  /* --- Skills --- */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;}
+  .skill-item{background:var(--card);padding:15px;border-radius:5px;text-align:center;font-family:'Fira Code',monospace;font-size:14px;transition:var(--transition);}
+  .skill-item:hover{transform:translateY(-5px);color:var(--accent);}
+  .skill-bar{height:8px;background:var(--subtext);border-radius:5px;margin-top:10px;overflow:hidden;}
+  .skill-fill{height:100%;background:var(--accent);width:0%;transition:1s;}
 
-        /* --- UTILITIES --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  /* --- Projects --- */
+  .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+  .project-card{background:var(--card);padding:20px;border-radius:8px;transition:var(--transition);}
+  .project-card:hover{transform:translateY(-7px);}
+  .project-card h3{font-size:20px;margin-bottom:10px;}
+  .project-card p{color:var(--subtext);font-size:14px;margin-bottom:10px;}
+  .tech-stack{display:flex;flex-wrap:wrap;gap:10px;font-family:'Fira Code',monospace;font-size:12px;color:var(--subtext);}
 
-        .section-title {
-            display: flex;
-            align-items: center;
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: var(--text-primary);
-        }
+  /* --- Knowledge & Goals --- */
+  .goals-container{background:var(--card);padding:30px;border-radius:8px;margin-top:30px;}
+  .goals-container ul li{position:relative;padding-left:20px;margin-bottom:10px;color:var(--subtext);}
+  .goals-container ul li::before{content:"▹";position:absolute;left:0;color:var(--accent);}
 
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 200px;
-            height: 1px;
-            background: var(--text-secondary);
-            margin-left: 20px;
-            opacity: 0.5;
-        }
+  /* --- Contact --- */
+  .contact-section{text-align:center;padding:100px 0;}
+  .contact-section input, .contact-section textarea{width:100%;padding:10px;margin:10px 0;background:var(--card);border:none;border-radius:5px;color:var(--text);}
+  .contact-section button{padding:12px 25px;border:1px solid var(--accent);color:var(--accent);border-radius:5px;cursor:pointer;transition:var(--transition);}
+  .contact-section button:hover{background:rgba(100,255,218,.1);}
+  .social-links a{margin:0 10px;font-size:22px;color:var(--text);transition:var(--transition);}
+  .social-links a:hover{color:var(--accent);}
 
-        .section-subtitle {
-            color: var(--accent-color);
-            font-family: 'Fira Code', monospace;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        /* --- HEADER / HERO --- */
-        header {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(40px, 8vw, 70px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 10px;
-        }
-
-        .hero-content h2 {
-            font-size: clamp(30px, 5vw, 50px);
-            font-weight: 700;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        .hero-content p {
-            max-width: 500px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            font-size: 18px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            border-radius: 4px;
-            font-family: 'Fira Code', monospace;
-            font-size: 14px;
-        }
-
-        .btn:hover {
-            background: rgba(100, 255, 218, 0.1);
-        }
-
-        /* --- ABOUT & EDUCATION --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 50px;
-        }
-
-        .edu-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 3px solid var(--accent-color);
-        }
-
-        .edu-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-
-        .edu-card .score {
-            font-family: 'Fira Code', monospace;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        /* --- SKILLS --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-item {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 4px;
-            text-align: center;
-            font-family: 'Fira Code', monospace;
-            font-size: 14px;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-5px);
-            color: var(--accent-color);
-        }
-
-        /* --- PROJECTS --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .project-card:hover {
-            transform: translateY(-7px);
-        }
-
-        .project-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .folder-icon {
-            color: var(--accent-color);
-            font-size: 40px;
-        }
-
-        .project-links a {
-            color: var(--text-primary);
-            font-size: 20px;
-        }
-
-        .project-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .project-card h3 {
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-family: 'Fira Code', monospace;
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        /* --- SELF STUDY & GOALS --- */
-        .goals-container {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-
-        .goals-container ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            color: var(--text-secondary);
-        }
-
-        .goals-container ul li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        /* --- CONTACT --- */
-        .contact-section {
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .social-links {
-            margin-top: 30px;
-            font-size: 24px;
-        }
-
-        .social-links a {
-            margin: 0 15px;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-content h1 {
-                font-size: 40px;
-            }
-        }
-    </style>
+  /* --- Responsive --- */
+  @media(max-width:768px){.about-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 
-    <header class="container">
-        <div class="hero-content">
-            <p class="section-subtitle">Hi, my name is</p>
-            <h1>Ezra Destaw</h1>
-            <h2>I build secure digital systems.</h2>
-            <p>
-                Aspiring Software Engineer & Ethical Hacking Enthusiast based in Ethiopia. 
-                I combine strong academic foundations with a passion for cybersecurity, 
-                Linux, and cryptography.
-            </p>
-            <a href="#projects" class="btn">Check out my projects</a>
-            <div style="margin-top: 20px; font-size: 14px; color: var(--text-secondary);">
-                <i class="fas fa-envelope"></i> ezradestaw@gmail.com | 
-                <i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia
-            </div>
-        </div>
-    </header>
+<header class="hero container">
+  <p class="section-subtitle">Hi, my name is</p>
+  <h1>Ezra Destaw</h1>
+  <h2>Software Engineer & Cybersecurity Enthusiast</h2>
+  <p>I build secure digital systems combining programming, ethical hacking, and cybersecurity knowledge. Passionate about Linux, networking, cryptography, and secure coding.</p>
+  <a href="#projects" class="btn">Check My Work</a>
+  <div style="margin-top:20px;font-size:14px;color:var(--subtext);">
+    <i class="fas fa-envelope"></i> ezradestaw@gmail.com | 
+    <i class="fas fa-phone"></i> +251952592480 | Ethiopia
+  </div>
+</header>
 
-    <section id="about" class="container">
-        <h2 class="section-title"><span class="section-subtitle">01.</span> About Me & Education</h2>
-        <div class="about-grid">
-            <div>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">
-                    My journey started at the prestigious <strong>Dessie Special Boarding School</strong>, where I developed a disciplined approach to problem-solving. While many focus only on building software, my passion lies in understanding how to break it—so I can build it better and more securely.
-                </p>
-                <p style="color: var(--text-secondary);">
-                    I am currently focused on bridging the gap between Software Engineering and Cybersecurity, with a strong interest in pursuing higher education in <strong>Russia</strong> to contribute to the global digital security landscape.
-                </p>
-            </div>
-            
-            <div>
-                <div class="edu-card">
-                    <h4>Ethiopian Secondary School Leaving Examination</h4>
-                    <p class="score">Score: 554 / 600</p>
-                    <p style="font-size: 13px; color: var(--text-secondary); margin-top: 5px;">
-                        <i class="fas fa-certificate"></i> National Top Ranking Certificate
-                    </p>
-                </div>
-                <div class="edu-card">
-                    <h4>Dessie Special Boarding School</h4>
-                    <p style="font-size: 13px; color: var(--text-secondary);">
-                        Graduated with Academic Excellence
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="about" class="container">
+  <h2 class="section-title">About Me & Education</h2>
+  <div class="about-grid">
+    <div>
+      <p style="color:var(--subtext);margin-bottom:15px;">Graduated from <strong>Dessie Special Boarding School</strong> with top scores and national recognition. Passionate about software engineering, ethical hacking, and cybersecurity.</p>
+      <p style="color:var(--subtext);">Focus on bridging software engineering with ethical hacking. Studying programming, security tools, cryptography, and networking to contribute to secure digital systems.</p>
+    </div>
+    <div>
+      <div class="edu-card">
+        <h4>Ethiopian Secondary School Leaving Examination</h4>
+        <p class="score">554 / 600</p>
+        <p style="font-size:13px;color:var(--subtext);margin-top:5px;"><i class="fas fa-certificate"></i> National Top Ranking Certificate</p>
+      </div>
+      <div class="edu-card">
+        <h4>Dessie Special Boarding School</h4>
+        <p style="font-size:13px;color:var(--subtext);">Graduated with Academic Excellence</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="skills" class="container">
-        <h2 class="section-title"><span class="section-subtitle">02.</span> Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item"><i class="fab fa-python"></i> Python</div>
-            <div class="skill-item"><i class="fas fa-c"></i> C Programming</div>
-            <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
-            <div class="skill-item"><i class="fab fa-linux"></i> Kali Linux</div>
-            <div class="skill-item"><i class="fas fa-shield-alt"></i> Burp Suite</div>
-            <div class="skill-item"><i class="fas fa-bug"></i> Metasploit</div>
-            <div class="skill-item"><i class="fas fa-network-wired"></i> Networking</div>
-            <div class="skill-item"><i class="fas fa-key"></i> Cryptography</div>
-        </div>
-    </section>
+<section id="skills" class="container">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-item">Python
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-item">C
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-item">JavaScript
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-item">HTML & CSS
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-item">Kali Linux
+      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+    </div>
+    <div class="skill-item">Burp Suite
+      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+    </div>
+    <div class="skill-item">Metasploit
+      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+    </div>
+    <div class="skill-item">Networking
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-item">Cryptography
+      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+    </div>
+  </div>
+</section>
 
-    <section id="projects" class="container">
-        <h2 class="section-title"><span class="section-subtitle">03.</span> Projects</h2>
-        <div class="project-grid">
-            
-            <div class="project-card">
-                <div>
-                    <div class="project-top">
-                        <i class="far fa-folder folder-icon"></i>
-                        <div class="project-links">
-                            <a href="YOUR_GITHUB_LINK_HERE" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Vulnerability Scanner</h3>
-                    <p>A Python-based tool that scans local networks for open ports and potential security weaknesses using the Socket library.</p>
-                </div>
-                <ul class="tech-stack">
-                    <li>Python</li>
-                    <li>Socket</li>
-                    <li>Networking</li>
-                </ul>
-            </div>
+<section id="projects" class="container">
+  <h2 class="section-title">Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>Vulnerability Scanner</h3>
+      <p>Python tool scanning local networks for open ports and security weaknesses.</p>
+      <ul class="tech-stack"><li>Python</li><li>Networking</li></ul>
+      <a href="#" class="btn">GitHub</a>
+    </div>
+    <div class="project-card">
+      <h3>Secure Login System</h3>
+      <p>Web login interface using secure authentication practices and hashed passwords.</p>
+      <ul class="tech-stack"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+      <a href="#" class="btn">GitHub</a>
+    </div>
+    <div class="project-card">
+      <h3>Cryptography Demo</h3>
+      <p>Python script demonstrating encryption & decryption algorithms.</p>
+      <ul class="tech-stack"><li>Python</li><li>Cryptography</li></ul>
+      <a href="#" class="btn">GitHub</a>
+    </div>
+  </div>
+</section>
 
-            <div class="project-card">
-                <div>
-                    <div class="project-top">
-                        <i class="far fa-folder folder-icon"></i>
-                        <div class="project-links">
-                            <a href="YOUR_GITHUB_LINK_HERE" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Secure Login System</h3>
-                    <p>A web interface implementing secure authentication practices, focusing on hashing passwords and preventing SQL injection.</p>
-                </div>
-                <ul class="tech-stack">
-                    <li>HTML/CSS</li>
-                    <li>JavaScript</li>
-                    <li>Security</li>
-                </ul>
-            </div>
+<section id="goals" class="container">
+  <h2 class="section-title">Knowledge & Future Plans</h2>
+  <div class="goals-container">
+    <h3 style="color:var(--text);margin-bottom:15px;">Self-Learning</h3>
+    <ul>
+      <li>Operating Systems Architecture</li>
+      <li>Network Security Protocols</li>
+      <li>Ethical Hacking Labs</li>
+      <li>Cryptography & Security Practices</li>
+    </ul>
+    <h3 style="color:var(--text);margin-top:20px;margin-bottom:15px;">Career Goals</h3>
+    <p style="color:var(--subtext);">Pursue Software Engineering studies in Russia, specialize in Ethical Hacking & Cybersecurity, and contribute ethically to secure global digital systems.</p>
+  </div>
+</section>
 
-            <div class="project-card">
-                <div>
-                    <div class="project-top">
-                        <i class="far fa-folder folder-icon"></i>
-                        <div class="project-links">
-                            <a href="YOUR_GITHUB_LINK_HERE" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Cryptography Demo</h3>
-                    <p>A script demonstrating the fundamentals of encryption and decryption algorithms to understand data protection.</p>
-                </div>
-                <ul class="tech-stack">
-                    <li>Python</li>
-                    <li>Cryptography</li>
-                    <li>Math</li>
-                </ul>
-            </div>
+<section id="contact" class="container contact-section">
+  <h2 class="section-title">Get In Touch</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <div class="social-links">
+    <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="mailto:ezradestaw@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</section>
 
-        </div>
-    </section>
-
-    <section id="goals" class="container">
-        <h2 class="section-title"><span class="section-subtitle">04.</span> Knowledge & Future Plans</h2>
-        <div class="goals-container">
-            <h3 style="color: var(--text-primary); margin-bottom: 20px;">Self-Directed Learning</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                I believe that cybersecurity requires continuous learning. I actively read books and practice labs on:
-            </p>
-            <ul>
-                <li>Operating Systems Architecture</li>
-                <li>Network Security Protocols (TCP/IP, OSI Model)</li>
-                <li>Ethical Hacking Methodologies</li>
-            </ul>
-
-            <h3 style="color: var(--text-primary); margin-top: 30px; margin-bottom: 20px;">Career Objectives</h3>
-            <p style="color: var(--text-secondary);">
-                My goal is to study <strong>Software Engineering</strong> with a specialization in Security. I am particularly interested in the educational opportunities in <strong>Russia</strong>, known for its strong mathematical and technical heritage. I aim to use my skills to build resilient infrastructure and contribute ethically to the tech world.
-            </p>
-        </div>
-    </section>
-
-    <section id="contact" class="container contact-section">
-        <p class="section-subtitle">05. What's Next?</p>
-        <h2 style="font-size: 50px; margin-bottom: 20px;">Get In Touch</h2>
-        <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">
-            I am currently looking for university opportunities and mentorship. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-        </p>
-        
-        <div class="social-links">
-            <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
-            </div>
-
-        <a href="mailto:your.email@example.com" class="btn" style="margin-top: 50px;">Say Hello</a>
-        
-        <footer style="margin-top: 100px; font-family: 'Fira Code', monospace; font-size: 12px; color: var(--text-secondary);">
-            <p>Designed & Built by Ezra Destaw</p>
-        </footer>
-    </section>
+<script>
+  // Animate skill bars on scroll
+  window.addEventListener('scroll', ()=>{
+    const skills=document.querySelectorAll('.skill-fill');
+    skills.forEach(skill=>{
+      const top=skill.getBoundingClientRect().top;
+      const height=window.innerHeight;
+      if(top<height-50){
+        skill.style.width=skill.style.width;
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
